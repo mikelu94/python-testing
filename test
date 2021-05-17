@@ -15,6 +15,7 @@ case $argument in
     lint)
         check_venv_exists
         venv/bin/flake8 src tests
+        venv/bin/pylint src
         venv/bin/isort src tests --check-only --diff
         venv/bin/bandit -r src
         ;;
