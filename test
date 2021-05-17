@@ -1,0 +1,39 @@
+#!/bin/bash
+
+check_venv_exists () {
+    [ -d "venv" ] || { echo "venv does not exist. Please run ./test install" && exit 1; }
+}
+
+argument="$1"
+case $argument in
+    install)
+        [ -d "venv" ] && { echo "venv already exists." && exit 0; }
+        python3 -m venv venv
+        venv/bin/pip install -U pip
+        venv/bin/pip install -r requirements.txt
+        ;;
+    lint)
+        check_venv_exists
+        venv/bin/flake8 src tests
+        venv/bin/isort src tests --check-only --diff
+        venv/bin/bandit -r src
+        ;;
+    unittest)
+        check_venv_exists
+        venv/bin/coverage run -m unittest discover -v -s tests/unittest
+        venv/bin/coverage report
+        ;;
+    nose2)
+        check_venv_exists
+        venv/bin/coverage run -m nose2 -v tests.unittest
+        venv/bin/coverage report
+        ;;
+    pytest)
+        check_venv_exists
+        venv/bin/coverage run -m pytest -v tests/pytest
+        venv/bin/coverage report
+        ;;
+    *)
+        echo "./test [install|lint|unittest|pytest|nose2]"
+        ;;
+esac
