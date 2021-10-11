@@ -14,10 +14,15 @@ case $argument in
         ;;
     lint)
         check_venv_exists
-        venv/bin/flake8 src tests
+        venv/bin/pycodestyle src tests
+        venv/bin/pydocstyle src tests
+        venv/bin/mypy src
+        # venv/bin/mypy tests
         venv/bin/pylint src
+        # venv/bin/pylint tests
         venv/bin/isort src tests --check-only --diff
         venv/bin/bandit -r src
+        # venv/bin/bandit -r tests
         ;;
     unittest)
         check_venv_exists

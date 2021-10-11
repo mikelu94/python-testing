@@ -1,3 +1,5 @@
+"""Package for src."""
+
 from .cycle_detection import cycle_detection, topological_sort
 from .polynomial import Polynomial
 from .subset_sum import subset_sum

@@ -1,3 +1,6 @@
+"""Module for determining subset sums."""
+
+
 def subset_sum(array: list[int], target: int) -> bool:
     """Calculate whether there exists a subarray that sums to a given target."""
     array_length = len(array)

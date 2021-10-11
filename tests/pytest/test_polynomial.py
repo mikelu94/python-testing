@@ -14,6 +14,12 @@ def test_eq():
     assert f == g
 
 
+def test_not_eq():
+    f = Polynomial([3, 2, 1])
+    g = None
+    assert f != g
+
+
 def test_add():
     f = Polynomial([3, 2, 1])
     g = Polynomial([1, 2, 3])

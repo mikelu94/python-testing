@@ -1,3 +1,4 @@
+"""Module for detecting cycles in directed graphs."""
 from queue import Queue
 from typing import Any
 
@@ -5,7 +6,7 @@ _Graph = dict[Any, list[Any]]
 
 
 def cycle_detection(graph: _Graph) -> bool:
-    """Calculate whether a graph has a cycle."""
+    """Calculate whether a directed graph has a cycle."""
     return len(graph) != len(topological_sort(graph))
 
 
@@ -17,7 +18,7 @@ def topological_sort(graph: _Graph) -> list[Any]:
     for node in graph:
         for neighbor in graph[node]:
             in_degree[neighbor] += 1
-    queue = Queue()
+    queue: Queue = Queue()
     for node in nodes:
         if not in_degree[node]:
             queue.put(node)

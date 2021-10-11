@@ -1,7 +1,9 @@
-bandit==1.7.0
-coverage==5.5
-flake8==3.9.2
-isort==5.8.0
-nose2==0.10.0
-pylint==2.8.2
-pytest==6.2.4
+bandit
+coverage
+isort
+mypy
+nose2
+pycodestyle
+pydocstyle
+pylint
+pytest

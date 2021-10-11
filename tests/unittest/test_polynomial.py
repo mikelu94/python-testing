@@ -14,6 +14,11 @@ class TestPolynomial(unittest.TestCase):
         g = Polynomial([3, 2, 1])
         self.assertEquals(f, g)
 
+    def test_not_eq(self):
+        f = Polynomial([3, 2, 1])
+        g = None
+        self.assertNotEqual(f, g)
+
     def test_add(self):
         f = Polynomial([3, 2, 1])
         g = Polynomial([1, 2, 3])
