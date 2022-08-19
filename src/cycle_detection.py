@@ -1,8 +1,9 @@
 """Module for detecting cycles in directed graphs."""
+from collections.abc import Mapping, Sequence
 from queue import Queue
-from typing import Any
+from typing import Any, List
 
-_Graph = dict[Any, list[Any]]
+_Graph = Mapping[Any, Sequence[Any]]
 
 
 def cycle_detection(graph: _Graph) -> bool:
@@ -11,7 +12,7 @@ def cycle_detection(graph: _Graph) -> bool:
 
 
 # Kahn's Algorithm
-def topological_sort(graph: _Graph) -> list[Any]:
+def topological_sort(graph: _Graph) -> List[Any]:
     """Calculate the topological sort of a DAG."""
     nodes = set(graph)
     in_degree = {node: 0 for node in nodes}

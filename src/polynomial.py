@@ -1,11 +1,13 @@
 """Module for Polynomials."""
+from collections.abc import Sequence
+from numbers import Number
 from typing import Union
 
 
 class Polynomial:
     """Polynomial class."""
 
-    def __init__(self, coefficients: list[int]) -> None:
+    def __init__(self, coefficients: Sequence[Number]) -> None:
         """Polynomial constructor."""
         self.coefficients = coefficients
 
@@ -33,7 +35,7 @@ class Polynomial:
         """Polynomial subtraction operator."""
         return self.__add__(other * -1)
 
-    def __mul__(self, other: Union["Polynomial", int]) -> "Polynomial":
+    def __mul__(self, other: Union["Polynomial", Number]) -> "Polynomial":
         """Polynomial multiplication operator."""
         if isinstance(other, int):
             return Polynomial(coefficients=[c*other for c in self.coefficients])

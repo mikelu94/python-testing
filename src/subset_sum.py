@@ -1,7 +1,9 @@
 """Module for determining subset sums."""
+from collections.abc import Sequence
+from numbers import Number
 
 
-def subset_sum(array: list[int], target: int) -> bool:
+def subset_sum(array: Sequence[Number], target: Number) -> bool:
     """Calculate whether there exists a subarray that sums to a given target."""
     array_length = len(array)
     if not target:
