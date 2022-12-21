@@ -7,11 +7,11 @@
 ## How to Set Up
 
 ```bash
-./test install
+./ci install
 ```
 
 ## How to Run Tests
 
 ```bash
-./test [pytest|unittest|nose2]
+./ci [pytest|unittest|nose2]
 ```
